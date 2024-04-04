@@ -1,6 +1,6 @@
 package com.au.example;
 
-import com.au.example.runnable.LanguageDemonstrationRunner;
+import com.au.example.runner.ExampleRunner;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,14 +15,13 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-
-
 	@Bean
-	ApplicationRunner example(Map<String, LanguageDemonstrationRunner> examples) {
+	ApplicationRunner example(Map<String, ExampleRunner> examples) {
 		return _ -> examples.forEach((_, runner) -> {
 			try {
 				runner.run();
-			} catch (Throwable e) {
+			}
+			catch (Throwable e) {
 				throw new RuntimeException(e);
 			}
 		});
