@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 class StringTemplates implements ExampleRunner {
 
-    @Override
+	@Override
     public void run() throws Throwable {
         var name = "ayhan";
         System.out.println(STR."""
